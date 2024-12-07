@@ -1,0 +1,33 @@
+classDiagram
+    MenuItem <|-- Bebida
+    MenuItem <|-- Aperitivo
+    MenuItem <|-- PlatoPrincipal
+    MenuItem : +float price
+    MenuItem : +str name
+    MenuItem: +calcular_precio_total()
+    MenuItem: +__init__(self, name, price)
+    
+    class Bebida{
+      +str tamanio
+      +__init__(self, name, price, tamanio)
+    }
+    
+    class Aperitivo{
+      +str porcion
+      +__init__(self, name, price, porcion)
+    }
+    
+    class PlatoPrincipal{
+      +list acompaniamientos
+      +__init__(self, name, price, acompaniamientos)
+    }
+    
+    class Orden{
+      +list items
+      +__init__(self)
+      +agregar_item(self, item: MenuItem)
+      +calcular_total(self)
+      +aplicar_descuento(self, porcentaje: float)
+    }
+    
+    Orden --> MenuItem : contiene

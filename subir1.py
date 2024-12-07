@@ -39,13 +39,13 @@ class Linea:
         cruce_y = self.inicio.y - (self.inicio.x * self.pendiente)
         return cruce_y
 
-    def discretize_line(self, n):
-        points = []
+    def discretizar_linea(self, n):
+        puntos = []
         dx = (self.fin.x - self.inicio.x) / n
         dy = (self.fin.y - self.inicio.y) / n
         for i in range(n + 1):
-            points.append(Punto(self.inicio.x + i * dx, self.inicio.y + i * dy))
-        return points
+            puntos.append(Punto(self.inicio.x + i * dx, self.inicio.y + i * dy))
+        return puntos
 
 
 class Rectangulo:
@@ -60,3 +60,8 @@ class Rectangulo:
 
     def perimetro(self):
         return 2 * (self.linea1.sacar_largo() + self.linea2.sacar_largo())
+
+punto1 = Punto(x=0, y=5)
+punto2 = Punto(x=3, y=-9)
+linea1 = Linea(punto1, punto2)
+
